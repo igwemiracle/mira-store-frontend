@@ -25,7 +25,7 @@ const AppLayout = ({ children }) => {
       <div className="flex-grow flex flex-col w-full">
         {children}
       </div>
-      {!shouldHideNavFooter && <Footer />}
+      {/* {!shouldHideNavFooter && <Footer />} */}
     </div>
   );
 };

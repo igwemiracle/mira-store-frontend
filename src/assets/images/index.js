@@ -4,7 +4,9 @@ import kitchen from './kitch.png'
 import toys from './toys.png'
 import fashion from './fashion.png'
 import gaming from './gaming.png'
+import ggm from './ggm.png'
 import data from './data.jpg'
+import beauty from './beauty.png'
 
 
 export const images = {
@@ -14,5 +16,7 @@ export const images = {
   toys,
   fashion,
   gaming,
-  data
+  data,
+  beauty,
+  ggm
 };

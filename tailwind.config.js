@@ -6,12 +6,18 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: '303px',
+      },
       fontFamily: {
         lato: 'var(--font-lato)',
         karla: 'var(--font-karla)',
         lora: 'var(--font-lora)',
+        amazon: 'var(--font-amazon)'
       },
     },
   },
-  plugins: [],
+  plugins: [
+    
+  ],
 }

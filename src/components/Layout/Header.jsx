@@ -99,11 +99,13 @@ const Header = () => {
           <div className="flexCenter gap-4 xs:gap-0">
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="flex p-2 border-2 border-transparent hover:border-[#FDFDFD] lg:hidden"
+              className="flex p-2 
+              
+              lg:border-2 lg:border-transparent lg:hover:border-[#FDFDFD] lg:hidden"
             >
               <Menu className="xs:w-8 xs:h-8 lg:w-10 lg:h-10" />
             </button>
-            <Link to="/" className="xs:p-2 border-2 border-transparent hover:border-[#FDFDFD]">
+            <Link to="/" className="xs:p-2 lg:border-2 lg:border-transparent lg:hover:border-[#FDFDFD]">
               <img
                 src={images.logo1}
                 alt="Logo"
@@ -142,12 +144,12 @@ const Header = () => {
             {/* Shopping cart */}
             <button
               onClick={() => requireAuth(() => toggleCartDrawer())}
-              className="relative lg:px-3 xs:p-2 border-2 border-transparent hover:border-[#FDFDFD] mr-3"
+              className="relative lg:px-3 xs:p-2 lg:border-2 lg:border-transparent lg:hover:border-[#FDFDFD] mr-3"
             >
               <ShoppingCart className="xs:w-7 xs:h-7 lg:w-12 lg:h-12" />
               {cartItemsCount > 0 && (
                 <span className="flexCenter absolute -top-0.5 -right-0.5 bg-[#FA801D] text-white text-[16px]
-                 lg:w-6 lg:h-6 xs:w-4 xs:h-4 rounded-full">
+                 lg:w-6 lg:h-6 xs:w-5 xs:h-5 rounded-full">
                   {cartItemsCount}
                 </span>
               )}
@@ -156,7 +158,7 @@ const Header = () => {
             {/* Tooltip Dropdown */}
             {showTooltip && (
               <>
-                <div className="fixed mt-[12.6rem] top-[-10vh] bottom-[-100vh] right-0 left-0 bg-black/50 z-40"></div>
+                <div className="fixed mt-[11.95rem] top-[-10vh] bottom-[-100vh] right-0 left-0 bg-black/50 z-40"></div>
                 <AccountDropdown
                   onMouseEnter={() => setShowTooltip(true)}
                   onMouseLeave={() => setShowTooltip(false)}
