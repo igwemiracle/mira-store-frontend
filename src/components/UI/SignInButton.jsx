@@ -3,11 +3,15 @@ import ReactDOM from "react-dom";
 import { useState, useEffect } from "react";
 import UserDrawer from "../../features/auth/UserDrawer";
 import { ChevronRight, User } from "lucide-react";
+import { LogoutUser } from "../../services/authService";
+import { useDispatch } from "react-redux";
+import { Logout } from "../../redux/slices/authSlice";
 
 export default function SignInButton({ user, showTooltip, setShowTooltip, onSignOut }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     document.body.style.overflow = drawerOpen ? "hidden" : "auto";
@@ -21,6 +25,16 @@ export default function SignInButton({ user, showTooltip, setShowTooltip, onSign
   const closeDrawer = () => {
     setDrawerOpen(false);
     setTimeout(() => setIsVisible(false), 300);
+  };
+
+  const handleLogout = async () => {
+    try {
+      await LogoutUser();
+      dispatch(Logout());
+      navigate("/login");
+    } catch (err) {
+      console.error("Logout failed:", err);
+    }
   };
 
   return (
@@ -78,7 +92,7 @@ export default function SignInButton({ user, showTooltip, setShowTooltip, onSign
                     drawerOpen={drawerOpen}
                     closeDrawer={closeDrawer}
                     navigate={navigate}
-                    onSignOut={onSignOut}
+                    onSignOut={handleLogout}
                   />
                 </>,
                 document.body

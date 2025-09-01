@@ -21,10 +21,10 @@ export default function CartSlider() {
   return (
     <div className="w-full flexCenter flex-col">
       {/* Subtotal Section */}
-      <div className="w-[8.5%] bg-white flexCenter flex-col gap-2 fixed top-0 z-10 p-4">
+      <div className="lg:w-[9.5%] xs:w-[41%]  bg-white flexCenter flex-col gap-2 fixed top-0 z-10 p-4">
         <h1 className="text-lg font-semibold">Subtotal</h1>
         <h2 className="text-base font-normal">${cart.totalPrice?.toFixed(2) || '0.00'}</h2>
-        <button className="bg-[#FA801D] w-[90%] text-white rounded-md py-2 text-sm hover:bg-[#e57114] transition">
+        <button className="bg-[#FA801D] lg:w-[90%] xs:px-8 text-white rounded-md py-2 text-sm hover:bg-[#e57114] transition">
           CHECKOUT
         </button>
       </div>
@@ -44,7 +44,6 @@ export default function CartSlider() {
               />
             </div>
 
-            {/* <p className="text-sm font-medium text-gray-800 mb-1">{item.product.name}</p> */}
             <p className="text-[17px] font-bold mb-3">${item.product.price?.toFixed(2) || '0.00'}</p>
 
             {/* Quantity and Actions */}

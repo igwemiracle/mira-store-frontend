@@ -5,7 +5,6 @@ import {
   getProductsBySubCategory
 } from "../../services/categoryService";
 import ProductsSection from "../../features/products/ProductsSection";
-import ProductsSkeleton from "../../components/skeletons/ProductsSkeleton";
 import { LoadingSpinner } from "../../components/UI/LoadingSpinner";
 
 export default function Products() {
@@ -39,13 +38,7 @@ export default function Products() {
 
   if (loading)
     return (
-      <div className="flex justify-center items-center xs:my-80 lg:my-96 mx-auto w-[90%]">
-        {/* <div className="pt-[130px] mx-auto w-[90%]"> */}
-        {/* <ProductsSkeleton
-          count={4}
-          imageHeight="h-48"
-          cardClassName="min-w-[350px] max-w-[300px] gap-x-[24rem]"
-        /> */}
+      <div className="flex justify-center items-center xs:my-80 lg:my-96 mx-auto w-[90%] ">
         <LoadingSpinner size="lg" />
       </div>
     );

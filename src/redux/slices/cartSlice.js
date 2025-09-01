@@ -1,5 +1,3 @@
-// cartSlice.js
-
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getCart, addToCart, removeFromCart } from '../../services/cartService';
 

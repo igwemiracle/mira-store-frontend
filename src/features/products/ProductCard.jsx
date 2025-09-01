@@ -33,18 +33,18 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <div className='bg-white lg:p-4 rounded-md mx-auto flex xs:gap-1 xs:justify-between lg:flex-col lg:items-start 
-    xs:w-full lg:max-w-xs'>
+    <div className='bg-white lg:p-4 rounded-md flex xs:justify-between lg:flex-col lg:items-start 
+    xs:w-[95%] mx-auto lg:max-w-xs'>
       {/* Product Image */}
-      <div className='basis-[50%]'>
+      <div className='basis-[50%] rounded-md overflow-hidden mb-2'>
         <img
           src={product.images?.[0]?.url || "https://via.placeholder.com/300x300?text=No+Image"}
           alt={product.name}
-          className="w-full h-64 object-contain mb-3"
+          className="w-full h-64 object-scale-down lg:mb-3"
         />
       </div>
 
-      <div className='basis-[50%] px-2'>
+      <div className='basis-[50%] p-1'>
         {/* Brand / Featured Label */}
         <span className="xs:text-[10px]
         lg:text-xs text-gray-500 mb-1">
@@ -83,7 +83,7 @@ export default function ProductCard({ product }) {
           <button
             type="button"
             className="xs:text-[12px]
-            bg-yellow-400 hover:bg-yellow-500 text-black font-medium xs:py-1 lg:py-2 px-6 rounded-full"
+            bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-2 px-3 rounded-full w-full"
             onClick={() => requireAuth(() => handleAddToCart())}
           >
             Add to cart
@@ -96,7 +96,7 @@ export default function ProductCard({ product }) {
             onIncrement={handleIncrement}
             onDecrement={handleDecrement}
             onRemove={handleRemove}
-            className="w-[50%]"
+            className="w-full"
           />
         )}
       </div>

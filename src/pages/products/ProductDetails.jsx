@@ -62,7 +62,7 @@ const ProductDetails = () => {
 
 
   return (
-    <div className='xs:mt-[150px] lg:mt-[160px] bg-gray-100 w-[90%] mx-auto'>
+    <div className='xs:mt-[150px] lg:mt-[160px] w-[90%] mx-auto p-2'>
       <section className="flex lg:flex-row justify-between gap-12 font-lato border-b border-gray-200 pb-8
        xs:flex-col
       ">
@@ -160,7 +160,7 @@ const ProductDetails = () => {
       </section>
 
       {/* Similar Products Placeholder */}
-      <section className="w-[90%] mx-auto mt-12">
+      <section className="w-[100%] mx-auto mt-12 bg-red-300">
         <h2 className="text-4xl font-bold font-lora pb-8">Similar Products</h2>
         {similarProducts.length > 0 ? (
           <div className="grid lg:grid-cols-5 gap-6 place-items-center">

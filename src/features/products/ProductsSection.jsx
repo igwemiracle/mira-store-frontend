@@ -27,29 +27,7 @@ const ProductsSection = ({ products, title = "Trending Products", hideFilter = f
       : products.filter((p) => p.category?.name === filteredCategory);
 
   return (
-    <section className="w-[90%] mx-auto">
-      <div className="flex justify-between items-center">
-        {categoryName ? (
-          <Link to={"/categories"} className="text-lg font-normal font-karla hover:underline">
-            Categories &gt; {categoryName}
-          </Link>
-        ) : (
-          <h1 className="text-4xl font-bold font-lora">{title}</h1>
-        )}
-
-        {!hideFilter && (
-          <select
-            className="border border-gray-300 rounded-md px-4 py-2"
-            value={filteredCategory}
-            onChange={(e) => setFilteredCategory(e.target.value)}
-          >
-            {categories.map((cat, idx) => (
-              <option key={idx} value={cat}>{cat}</option>
-            ))}
-          </select>
-        )}
-      </div>
-
+    <section className="lg:w-[90%] xs:w-[100%] mx-auto">
       <div className="grid lg:grid-cols-5 gap-2 ">
         {products.length === 0 ? (
           <div className="col-span-4 flex flex-col items-center justify-center py-20 text-center text-gray-500">
