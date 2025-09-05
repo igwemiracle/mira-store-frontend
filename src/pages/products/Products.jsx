@@ -38,7 +38,7 @@ export default function Products() {
 
   if (loading)
     return (
-      <div className="flex justify-center items-center xs:my-80 lg:my-96 mx-auto w-[90%] ">
+      <div className="flex justify-center items-center xs:my-72 lg:my-80 mx-auto w-[90%] ">
         <LoadingSpinner size="lg" />
       </div>
     );

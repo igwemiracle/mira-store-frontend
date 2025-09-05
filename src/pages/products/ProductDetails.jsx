@@ -49,7 +49,7 @@ const ProductDetails = () => {
   };
 
   if (loading) return (
-    <div className="pt-[140px] flex items-center justify-center h-64">
+    <div className="xs:my-50 lg:my-80 flex items-center justify-center h-64">
       <LoadingSpinner size="lg" className="my-4" />
     </div>
   );
@@ -62,7 +62,7 @@ const ProductDetails = () => {
 
 
   return (
-    <div className='xs:mt-[150px] lg:mt-[160px] w-[90%] mx-auto p-2'>
+    <div className='xs:mt-[150px] lg:mt-[160px] xs:w-[100%] lg:w-[90%] mx-auto p-2'>
       <section className="flex lg:flex-row justify-between gap-12 font-lato border-b border-gray-200 pb-8
        xs:flex-col
       ">
@@ -160,10 +160,10 @@ const ProductDetails = () => {
       </section>
 
       {/* Similar Products Placeholder */}
-      <section className="w-[100%] mx-auto mt-12 bg-red-300">
+      <section className="w-[100%] mx-auto mt-12">
         <h2 className="text-4xl font-bold font-lora pb-8">Similar Products</h2>
         {similarProducts.length > 0 ? (
-          <div className="grid lg:grid-cols-5 gap-6 place-items-center">
+          <div className="grid lg:grid-cols-5 gap-2 place-items-center w-[100%]">
             {similarProducts.map((item) => (
               <ProductCard key={item.id} product={item} handleAddToCart={handleAddToCart} />
             ))}
