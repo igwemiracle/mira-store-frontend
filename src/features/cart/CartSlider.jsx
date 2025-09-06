@@ -4,6 +4,7 @@ import { getCart } from '../../services/cartService';
 import CartSkeleton from '../../components/skeletons/CartSkeleton';
 import QuantityControls from '../../components/QuantityControls';
 import { useCartActions } from '../../hooks/useCartActions';
+import { Link } from 'react-router-dom';
 
 export default function CartSlider() {
   const { isUpdating, handleIncrement, handleDecrement, handleRemove } = useCartActions();
@@ -24,9 +25,9 @@ export default function CartSlider() {
       <div className="lg:w-[9.5%] xs:w-[41%]  bg-white flexCenter flex-col gap-2 fixed top-0 z-10 p-4">
         <h1 className="text-lg font-semibold">Subtotal</h1>
         <h2 className="text-base font-normal">${cart.totalPrice?.toFixed(2) || '0.00'}</h2>
-        <button className="bg-[#FA801D] lg:w-[90%] xs:px-8 text-white rounded-md py-2 text-sm hover:bg-[#e57114] transition">
+        <Link to="/checkout" className="bg-[#FA801D] lg:w-[90%] xs:px-8 text-white rounded-md py-2 text-sm hover:bg-[#e57114] transition">
           CHECKOUT
-        </button>
+        </Link>
       </div>
 
       {/* Cart Items Section */}

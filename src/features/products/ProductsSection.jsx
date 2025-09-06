@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ProductCard from "./ProductCard";
-import { Link } from "react-router-dom";
 import { addToCart, getCart } from "../../services/cartService";
 
 const ProductsSection = ({ products, title = "Trending Products", hideFilter = false, categoryName }) => {
@@ -28,7 +27,7 @@ const ProductsSection = ({ products, title = "Trending Products", hideFilter = f
 
   return (
     <section className="lg:w-[90%] xs:w-[100%] mx-auto">
-      <div className="grid lg:grid-cols-5 gap-2 ">
+      <div className="grid lg:grid-cols-5 gap-2">
         {products.length === 0 ? (
           <div className="col-span-4 flex flex-col items-center justify-center py-20 text-center text-gray-500">
             <svg

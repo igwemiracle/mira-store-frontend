@@ -13,6 +13,8 @@ import Header from './components/Layout/Header';
 import { useDispatch } from 'react-redux';
 import { getCartThunk } from './redux/slices/cartSlice';
 import RegisterPage from './pages/auth/Register';
+import Checkout from './pages/Checkout';
+import Orders from './pages/Orders';
 
 const AppLayout = ({ children }) => {
   const location = useLocation();
@@ -25,7 +27,7 @@ const AppLayout = ({ children }) => {
       <div className="flex-grow flex flex-col w-full">
         {children}
       </div>
-      {/* {!shouldHideNavFooter && <Footer />} */}
+      {!shouldHideNavFooter && <Footer />}
     </div>
   );
 };
@@ -48,6 +50,9 @@ const App = () => {
           <Route path="/categories" element={<Categories />} />
           <Route path="/parent/:id" element={<CategoryProducts />} />
           <Route path="/products/:type/:id" element={<Products />} />
+          <Route path='/checkout' element={<Checkout />} />
+          <Route path='/orders' element={<Orders />} />
+          <Route path="*" element={<h1 className="text-center mt-20">404 - Page Not Found</h1>} />
         </Routes>
       </AppLayout>
     </ThemeProvider>

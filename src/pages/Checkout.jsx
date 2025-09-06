@@ -1,13 +1,13 @@
 import React from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createPaymentIntentOnly, createOrderAfterPayment } from "../services/orderService";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 
 export default function CheckoutPage() {
   const stripe = useStripe();
   const elements = useElements();
+  const queryClient = useQueryClient();
 
-  // -------------------
   // Step 1: Create PaymentIntent only
   const {
     mutate: handleCreatePaymentIntent,
@@ -20,7 +20,6 @@ export default function CheckoutPage() {
     mutationFn: () => createPaymentIntentOnly(),
   });
 
-  // -------------------
   // Step 2: Handle Stripe payment and then create order
   const handlePayment = async () => {
     if (!stripe || !elements) {
@@ -59,13 +58,15 @@ export default function CheckoutPage() {
 
       alert("✅ Payment successful!");
 
-      // -------------------
       // Step 3: Create order in DB
       try {
         // Pass as an object, backend expects { paymentIntentId }
         const orderResponse = await createOrderAfterPayment({
           paymentIntentId: paymentIntent.id,
         });
+
+        // ✅ REFRESH/UPDATE FRONTEND CART STATE HERE
+        queryClient.invalidateQueries({ queryKey: ["cart"] });
 
         // Axios wraps response.data
         const createdOrder = orderResponse?.data?.order;

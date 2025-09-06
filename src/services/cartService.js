@@ -1,4 +1,3 @@
-// services/cart.js
 import API from './api';
 
 export const addToCart = (productId) =>

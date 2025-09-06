@@ -120,7 +120,7 @@ const Header = () => {
             <div className="xs:hidden lg:flex justify-center items-center">
               <Link
                 id="login-link"
-                to="/"
+                to="/orders"
                 className="flex flex-col p-2 border-2 border-transparent hover:border-[#FDFDFD]"
               >
                 <p className="text-[14px] font-normal">Returns</p>
