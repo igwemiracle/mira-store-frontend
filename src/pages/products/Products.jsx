@@ -4,7 +4,7 @@ import {
   getProductsByParentCategory,
   getProductsBySubCategory
 } from "../../services/categoryService";
-import ProductsSection from "../../features/products/ProductsSection";
+import ShowProducts from "../../features/products/ShowProducts";
 import { LoadingSpinner } from "../../components/UI/LoadingSpinner";
 
 export default function Products() {
@@ -45,7 +45,7 @@ export default function Products() {
 
   return (
     <div className="pt-[160px]">
-      <ProductsSection
+      <ShowProducts
         products={products}
         hideFilter={true}
         title=""

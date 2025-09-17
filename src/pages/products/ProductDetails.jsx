@@ -18,7 +18,6 @@ const ProductDetails = () => {
   const [mainImage, setMainImage] = useState('');
   const { openCartDrawer } = useCartDrawer();
 
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -177,5 +176,3 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
-
-

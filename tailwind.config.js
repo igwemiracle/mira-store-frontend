@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       screens: {
         xs: '303px',
+
       },
       fontFamily: {
         lato: 'var(--font-lato)',
@@ -18,6 +19,6 @@ module.exports = {
     },
   },
   plugins: [
-    
+
   ],
 }

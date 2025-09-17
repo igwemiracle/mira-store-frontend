@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import { getProductsByParentCategory } from '../../services/categoryService';
-import ProductsSection from '../../features/products/ProductsSection';
+import ShowProducts from '../../features/products/ShowProducts';
 import ProductsSkeleton from '../../components/skeletons/ProductsSkeleton';
 import { LoadingSpinner } from '../../components/UI/LoadingSpinner';
 
@@ -37,7 +37,7 @@ const CategoryProducts = () => {
 
   return (
     <div className="pt-[130px]">
-      <ProductsSection products={products} hideFilter categoryName={categoryName} title='' />
+      <ShowProducts products={products} hideFilter categoryName={categoryName} title='' />
     </div>
   );
 };
