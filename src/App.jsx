@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import "./App.css";
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { ThemeProvider } from './context/ThemeContext';
 import Homepage from './pages/homepage/Homepage';
 import Footer from './components/Layout/Footer';
 import Login from './pages/auth/Login';
@@ -41,21 +40,19 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <ThemeProvider>
-      <AppLayout>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/product/:id" element={<ProductDetails />} />
-          <Route path="/parent/:id" element={<Categories />} />
-          <Route path="/products/:type/:id" element={<Products />} />
-          <Route path='/checkout' element={<Checkout />} />
-          <Route path='/orders' element={<Orders />} />
-          <Route path="*" element={<h1 className="text-center mt-20">404 - Page Not Found</h1>} />
-        </Routes>
-      </AppLayout>
-    </ThemeProvider>
+    <AppLayout>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/parent/:id" element={<Categories />} />
+        <Route path="/products/:type/:id" element={<Products />} />
+        <Route path='/checkout' element={<Checkout />} />
+        <Route path='/orders' element={<Orders />} />
+        <Route path="*" element={<h1 className="text-center mt-20">404 - Page Not Found</h1>} />
+      </Routes>
+    </AppLayout>
   );
 };
 
