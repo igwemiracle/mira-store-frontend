@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
-import { getProductsByParentCategory } from '../../services/categoryService';
-import ShowProducts from '../../features/products/ShowProducts';
-import ProductsSkeleton from '../../components/skeletons/ProductsSkeleton';
-import { LoadingSpinner } from '../../components/UI/LoadingSpinner';
+import { getProductsByParentCategory } from '../services/categoryService';
+import ShowProducts from '../features/products/ShowProducts';
+import { LoadingSpinner } from '../components/UI/LoadingSpinner';
 
-const CategoryProducts = () => {
+const Categories = () => {
   const { id } = useParams();
   const { state } = useLocation();
   const categoryName = state?.name || "Unknown";
@@ -30,7 +29,6 @@ const CategoryProducts = () => {
 
   if (loading) return (
     <div className="pt-[130px] mx-auto w-[90%]">
-      {/* <ProductsSkeleton count={4} imageHeight="h-48" cardClassName="min-w-[350px] max-w-[300px] gap-x-[24rem]" /> */}
       <LoadingSpinner size="lg" />
     </div>
   );
@@ -42,4 +40,4 @@ const CategoryProducts = () => {
   );
 };
 
-export default CategoryProducts;
+export default Categories;

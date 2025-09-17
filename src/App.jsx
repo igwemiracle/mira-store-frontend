@@ -3,9 +3,7 @@ import "./App.css";
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import Homepage from './pages/homepage/Homepage';
-import CategoryProducts from './pages/Category/CategoryProducts';
 import Footer from './components/Layout/Footer';
-import Categories from './pages/category/Categories';
 import Login from './pages/auth/Login';
 import Products from './pages/products/Products';
 import ProductDetails from './pages/products/ProductDetails';
@@ -15,6 +13,9 @@ import { getCartThunk } from './redux/slices/cartSlice';
 import RegisterPage from './pages/auth/Register';
 import Checkout from './pages/Checkout';
 import Orders from './pages/Orders';
+import Categories from './pages/Categories';
+
+
 
 const AppLayout = ({ children }) => {
   const location = useLocation();
@@ -47,8 +48,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/product/:id" element={<ProductDetails />} />
-          <Route path="/categories" element={<Categories />} />
-          <Route path="/parent/:id" element={<CategoryProducts />} />
+          <Route path="/parent/:id" element={<Categories />} />
           <Route path="/products/:type/:id" element={<Products />} />
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/orders' element={<Orders />} />
