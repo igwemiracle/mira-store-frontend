@@ -12,8 +12,8 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { Toaster } from 'react-hot-toast';
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
-console.log(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
-console.log("Stripe loaded:", stripePromise);
+// console.log(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
+// console.log("Stripe loaded:", stripePromise);
 
 
 const queryClient = new QueryClient();
@@ -31,7 +31,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             />
           </Elements>
           {/* Devtools - show initially closed */}
-          {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+          <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>
       </BrowserRouter>
     </Provider>

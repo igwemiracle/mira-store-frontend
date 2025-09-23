@@ -77,7 +77,7 @@ export default function CheckoutPage() {
           );
         }
 
-        console.log("Order created:", createdOrder);
+        // console.log("Order created:", createdOrder);
         alert(`✅ Order created successfully! Order ID: ${createdOrder._id}`);
       } catch (err) {
         console.error("Order creation error:", err);
