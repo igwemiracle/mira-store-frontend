@@ -44,7 +44,7 @@ export default function AccountDropdown({ onMouseEnter, onMouseLeave }) {
       ) : (
         <>
           <Link to={"/login"}>
-            <button className="w-full bg-[#FA801D] py-2 font-semibold rounded cursor-pointer">
+            <button className="w-full bg-[#FA801D] py-2 font-semibold rounded">
               Sign In
             </button>
           </Link>

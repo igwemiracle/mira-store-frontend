@@ -17,7 +17,7 @@ export default function Sidebar({ user, isOpen, onClose, categories, expandedId,
         className={`fixed top-0 left-0 h-full w-[280px] bg-white z-50 shadow-2xl transform transition-transform duration-500 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full"
           }`}
       >
-        <div className="flexBetweenCenter p-4 border-b border-gray-200 bg-[#242f40] text-white">
+        <div className="flex-c-between p-4 border-b border-gray-200 bg-[#242f40] text-white">
           <p className="text-base font-medium">
             Browse <br />
             <span className="text-[26px] font-semibold">Mira Store</span>
@@ -43,7 +43,7 @@ export default function Sidebar({ user, isOpen, onClose, categories, expandedId,
                 return (
                   <li key={category._id}>
                     <div
-                      className="flexBetweenCenter px-2 py-2 rounded hover:bg-gray-100"
+                      className="flex-c-between px-2 py-2 rounded hover:bg-gray-100"
                       onClick={() => handleCategoryClick(category)}
                     >
                       <span className="text-gray-700 font-medium">
@@ -82,7 +82,7 @@ export default function Sidebar({ user, isOpen, onClose, categories, expandedId,
                 );
               })
             ) : (
-              <li className="text-sm text-gray-400">Loading...</li>
+              <li className="text-sm text-gray-500 animate-pulse">Loading...</li>
             )}
           </ul>
 
@@ -98,7 +98,7 @@ export default function Sidebar({ user, isOpen, onClose, categories, expandedId,
             ].map((item) => (
               <li
                 key={item}
-                className="hover:text-blue-600 cursor-pointer transition-colors"
+                className="hover:text-blue-600 transition-colors"
               >
                 {item}
               </li>
@@ -109,10 +109,10 @@ export default function Sidebar({ user, isOpen, onClose, categories, expandedId,
             Help & Settings
           </h3>
           <ul className="space-y-2 text-gray-700 text-sm">
-            <li className="hover:text-blue-600 cursor-pointer transition-colors">
+            <li className="hover:text-blue-600 transition-colors">
               Your Account
             </li>
-            <li className="hover:text-blue-600 cursor-pointer transition-colors">
+            <li className="hover:text-blue-600 transition-colors">
               English
             </li>
           </ul>

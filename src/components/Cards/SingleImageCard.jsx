@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const SingleImageCard = ({ title, linkText, image, productId }) => (
 
   <div>
-    <div className='h-[460px] p-6 flexBetween flex-col gap-3 shadow-md bg-white'>
+    <div className='h-[460px] p-6 flex-c-between flex-col gap-3 shadow-md bg-white'>
       <h1 className="text-[22px] font-bold">{title}</h1>
       <Link to={`/products/${productId}`} className="flex flex-col items-start gap-2">
         <div className="w-full bg-blue-50 h-[300px] overflow-hidden">

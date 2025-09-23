@@ -20,9 +20,9 @@ export default function CartSlider() {
   if (!cart || cart.items.length === 0) return <p className='text-center'>Your cart is empty.</p>;
 
   return (
-    <div className="w-full flexCenter flex-col">
+    <div className="w-full flex-center flex-col">
       {/* Subtotal Section */}
-      <div className="lg:w-[9.5%] xs:w-[41%]  bg-white flexCenter flex-col gap-2 fixed top-0 z-10 p-4">
+      <div className="lg:w-[9.5%] xs:w-[41%]  bg-white flex-center flex-col gap-2 fixed top-0 z-10 p-4">
         <h1 className="text-lg font-semibold">Subtotal</h1>
         <h2 className="text-base font-normal">${cart.totalPrice?.toFixed(2) || '0.00'}</h2>
         <Link to="/checkout" className="bg-[#FA801D] lg:w-[90%] xs:px-8 text-white rounded-md py-2 text-sm hover:bg-[#e57114] transition">
@@ -31,11 +31,11 @@ export default function CartSlider() {
       </div>
 
       {/* Cart Items Section */}
-      <div className="w-full flexCenter flex-col gap-4 mt-36">
+      <div className="w-full flex-center flex-col gap-4 mt-36">
         {cart.items.map((item) => (
           <div
             key={item._id}
-            className="w-full flexCenter flex-col border-t border-gray-300 py-4 px-4"
+            className="w-full flex-center flex-col border-t border-gray-300 py-4 px-4"
           >
             <div className="mb-2">
               <img

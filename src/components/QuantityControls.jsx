@@ -14,7 +14,7 @@ export default function QuantityControls({
   return (
     <div className={`flex justify-between items-center gap-6 border-[#FA801D] border-2 py-1 px-3 rounded-full  ${className}`}>
       {/* Left Button */}
-      <div className="w-6 h-6 flex items-center justify-center">
+      <div className="w-6 h-6 flex-center">
         {quantity > 1 ? (
           <button
             onClick={() => onDecrement(productId, quantity)}
@@ -33,7 +33,7 @@ export default function QuantityControls({
       </div>
 
       {/* Quantity */}
-      <div className="w-6 h-6 flex items-center justify-center">
+      <div className="w-6 h-6 flex flex-center">
         {isUpdating === productId ? (
           <LoadingSpinner />
         ) : (
@@ -42,7 +42,7 @@ export default function QuantityControls({
       </div>
 
       {/* Right Button */}
-      <div className="w-6 h-6 flex items-center justify-center">
+      <div className="w-6 h-6 flex flex-center">
         <button
           onClick={() => onIncrement(productId, quantity)}
           className="text-[#FA801D] hover:text-[#d86e12] transition"

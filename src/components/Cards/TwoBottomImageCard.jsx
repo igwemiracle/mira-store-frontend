@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const TwoBottomImageCard = ({ title, linkText, items }) => (
-  <div className="max-h-[460px] py-6 px-5 flexBetween flex-col shadow-md">
+  <div className="max-h-[460px] py-6 px-5 flex-c-between flex-col shadow-md">
     <h1 className="text-[20px] font-bold">{title}</h1>
     <div className="space-y-4">
       {items.length > 0 && (

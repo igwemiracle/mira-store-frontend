@@ -5,7 +5,7 @@ const FourGridCard = ({ title, linkText, items, parentCategoryId }) => {
   if (!items || items.length === 0) return null;
 
   return (
-    <div className="max-h-[460px] p-6 flexBetween flex-col shadow-md gap-2 bg-white">
+    <div className="max-h-[460px] p-6 flex-c-between flex-col shadow-md gap-2 bg-white">
       <h1 className="text-[21px] font-bold">{title}</h1>
       <div className="grid grid-cols-2 gap-y-6 gap-x-4">
         {items.map((item, index) => (

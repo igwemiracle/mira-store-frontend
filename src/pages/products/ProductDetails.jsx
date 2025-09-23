@@ -48,7 +48,7 @@ const ProductDetails = () => {
   };
 
   if (loading) return (
-    <div className="xs:my-50 lg:my-80 flex items-center justify-center h-64">
+    <div className="xs:my-50 lg:my-80 flex-center h-64">
       <LoadingSpinner size="lg" className="my-4" />
     </div>
   );
@@ -75,7 +75,7 @@ const ProductDetails = () => {
                 key={index}
                 src={img.url}
                 alt={`Thumbnail ${index + 1}`}
-                className="w-20 h-20 object-cover border cursor-pointer hover:border-blue-500"
+                className="w-20 h-20 object-cover border hover:border-blue-500"
                 onClick={() => setMainImage(img.url)}
               />
             ))}

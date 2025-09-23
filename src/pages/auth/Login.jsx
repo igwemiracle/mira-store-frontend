@@ -31,7 +31,7 @@ const LoginPage = () => {
 
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+    <div className="min-h-screen flex-center bg-gray-100 p-4">
       <div className="w-full max-w-md bg-white shadow-xl rounded-xl p-8">
         <Link to="/">
           <img
@@ -67,8 +67,7 @@ const LoginPage = () => {
           />
           <button
             type="submit"
-            className="mt-4 w-full bg-dark-brown text-white p-3 rounded bg-[#03498f] transition-colors duration-300
-            cursor-pointer"
+            className="mt-4 w-full bg-dark-brown text-white p-3 rounded bg-[#03498f] transition-colors duration-300"
           >
             Login
           </button>

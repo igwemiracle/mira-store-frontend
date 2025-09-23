@@ -47,7 +47,7 @@ export default function SignInButton({ user, showTooltip, setShowTooltip, onSign
           onMouseEnter={() => setShowTooltip(true)}
           onMouseLeave={() => setShowTooltip(false)}
         >
-          <p className="text-[14px] font-normal">
+          <p className="text-[14px] font-normal text-truncate">
             Hello, {user ? user.name ?? "User" : "sign in"}
           </p>
           <span className="font-semibold">Account & Lists</span>

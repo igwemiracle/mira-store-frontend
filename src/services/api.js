@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// Use environment variable or default to local for safety
 const API = axios.create({
   baseURL: import.meta.env.VITE_API_URL || '/api/v1',
   withCredentials: true,

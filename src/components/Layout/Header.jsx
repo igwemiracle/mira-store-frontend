@@ -87,9 +87,9 @@ const Header = () => {
         className={`fixed py-3 top-0 left-0 w-full z-50 bg-[#232F3E] text-[#FDFDFD] transition-transform duration-700 ease-in-out font-karla ${scrolled && scrollDirection === "down" ? "-translate-y-full" : "translate-y-0"
           }`}
       >
-        <div className="flexBetweenCenter lg:w-[83%] xs:w-[100%] mx-auto">
+        <div className="flex-c-between lg:w-[83%] xs:w-[100%] mx-auto">
           {/* Left: Menu + Logo */}
-          <div className="flexCenter gap-4 xs:gap-0">
+          <div className="flex-center gap-4 xs:gap-0">
             <button
               onClick={() => setIsMenuOpen(true)}
               className="flex p-2 lg:border-2 lg:border-transparent lg:hover:border-[#FDFDFD] lg:hidden"
@@ -135,7 +135,7 @@ const Header = () => {
             >
               <ShoppingCart className="xs:w-7 xs:h-7 lg:w-12 lg:h-12" />
               {cartItemsCount > 0 && (
-                <span className="flexCenter absolute -top-0.5 -right-0.5 bg-[#FA801D] text-white text-[16px]
+                <span className="flex-center absolute -top-0.5 -right-0.5 bg-[#FA801D] text-white text-[16px]
                   lg:w-6 lg:h-6 xs:w-5 xs:h-5 rounded-full">
                   {cartItemsCount}
                 </span>
