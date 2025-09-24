@@ -14,7 +14,7 @@ const ShowCardGrid = () => {
 
 
   return (
-    <section className="xl:w-[95%] lg:w-[90%] mx-auto grid xs:w-[350px] xs:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+    <section className="sm:w-[100%] xl:w-[95%] lg:w-[90%] mx-auto grid xs:w-[350px] xs:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-5">
       {cards.length === 0
         ? [...Array(4)].map((_, idx) => <CardSkeleton key={idx} />)
         : cards.map((card, index) => {

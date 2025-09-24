@@ -106,7 +106,7 @@ const Header = () => {
           </div>
 
           {/* Middle: Search Bar */}
-          <div className="flex-1 xs:hidden md:flex lg:justify-center px-4">
+          <div className="flex-1 xs:hidden sm:flex lg:justify-center px-4">
             <SearchBar placeholder="Search for a product..." />
           </div>
 
@@ -117,7 +117,7 @@ const Header = () => {
               showTooltip={showTooltip}
               setShowTooltip={setShowTooltip}
             />
-            <div className="xs:hidden md:flex justify-center items-center">
+            <div className="xs:hidden sm:flex justify-center items-center">
               <Link
                 id="login-link"
                 to="/orders"
@@ -156,7 +156,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Search Bar */}
-        <div className="xs:flex md:hidden">
+        <div className="xs:flex sm:hidden">
           <SearchBar placeholder="Search for a product..." />
         </div>
       </header>

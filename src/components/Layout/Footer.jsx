@@ -17,7 +17,7 @@ export default function Footer() {
       </div>
 
       {/* Footer Section */}
-      <footer className="bg-[#232F3E] text-white py-12 mt-10">
+      <footer className="bg-[#232F3E] text-white py-12 mt-10 w-full">
         <div className="w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
           {/* About Section */}

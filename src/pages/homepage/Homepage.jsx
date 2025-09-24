@@ -34,7 +34,8 @@ const Homepage = () => {
       <HeroSection />
 
       {/* Services section */}
-      <section className="xs:hidden md:-mt-[5rem] lg:-mt-[7rem] relative z-20 md:flex flex-wrap w-[95%] mx-auto justify-between gap-4">
+      <section className="xs:hidden sm:-mt-[5rem] lg:-mt-[7rem] relative z-20 sm:flex flex-wrap 
+       sm:w-[95%] mx-auto justify-between gap-4">
         {[
           {
             icon: (
@@ -77,12 +78,12 @@ const Homepage = () => {
             desc: 'Contact us 24 hours a day'
           }
         ].map((item, i) => (
-          <div key={i} className="flex items-start bg-white gap-3 md:p-2 lg:py-8 px-1 xl:py-6 flex-1 w-[300px]">
+          <div key={i} className="flex items-start bg-white gap-3 sm:p-2 lg:py-8 px-1 xl:py-6 flex-1 w-[300px]">
             {item.icon}
             <div>
-              <p className="md:text-[14px] lg:text-[19px] xl:text-[20px] font-medium font-karla">
+              <p className="sm:text-[12px] md:text-[14px] lg:text-[19px] xl:text-[20px] font-medium font-karla">
                 {item.title}</p>
-              <p className="md:text-[10px] lg:text-[14px] xl:text-[17px] font-normal font-karla text-gray-600">{item.desc}</p>
+              <p className="sm:text-[10px] md:text-[10px] lg:text-[14px] xl:text-[17px] font-normal font-karla text-gray-600">{item.desc}</p>
             </div>
           </div>
         ))}

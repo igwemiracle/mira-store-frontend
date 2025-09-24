@@ -29,7 +29,7 @@ export default function HeroSection() {
   return (
     <>
       {/* ======= MOBILE VERSION (xs:303px only) ======= */}
-      <div className="md:hidden xs:block w-[92%] mx-auto font-amazon relative z-10">
+      <div className="sm:hidden xs:block w-[92%] mx-auto font-amazon relative z-10">
         <Swiper
           modules={[Pagination]}
           pagination={{ clickable: true }}
@@ -74,7 +74,7 @@ export default function HeroSection() {
       </div>
 
       {/* ======= DESKTOP VERSION (lg only, original code unchanged) ======= */}
-      <Link to={"/"} className="xs:hidden md:block md:w-[100%] xl:w-[95%] mx-auto overflow-hidden font-amazon relative z-10">
+      <Link to={"/"} className="xs:hidden sm:block md:w-[100%] xl:w-[95%] mx-auto overflow-hidden font-amazon relative z-10">
         <div
           className="relative transition-transform duration-[1000ms] ease-in-out flex"
           style={{
@@ -86,18 +86,18 @@ export default function HeroSection() {
             <div
               key={index}
 
-              className="flex md:items-center md:justify-center flex-shrink-0 xs:rounded-2xl md:rounded-none
-            relative md:h-[300px] lg:h-[500px] xs:h-[500px] xs:mt-[9rem] md:mt-[5.6rem]"
+              className="flex md:items-center md:justify-center flex-shrink-0 xs:rounded-2xl sm:rounded-none
+            relative sm:h-[300px] md:h-[300px] lg:h-[500px] xs:h-[500px] xs:mt-[9rem] sm:mt-[5.6rem]"
               style={{
                 width: `${100 / heroData.length}%`,
                 backgroundColor: item.bgColor,
               }}
             >
-              <div className="flex md:flex-row md:items-center md:justify-center md:p-0
+              <div className="flex sm:flex-row sm:items-center sm:justify-center p-0
              xs:flex-col xs:justify-between xs:p-2">
 
                 {/* Left Text */}
-                <div className="flex flex-col gap-3 lg:basis-[70%] text-center animate-bounce">
+                <div className="flex flex-col gap-3 lg:basis-[70%] text-center">
                   <h1 className="xs:text-[35px] lg:text-[45px] xl:text-[55px] font-extrabold text-white leading-tight">
                     {item.title}
                   </h1>
@@ -107,12 +107,12 @@ export default function HeroSection() {
                 </div>
 
                 {/* Right Image */}
-                <div className="xs:basis-[70%] md:w-[400px] md:h-[250px] lg:w-[700px] lg:h-auto xl:w-[900px] xl:h-[550px] p-0 ">
+                <div className="xs:basis-[70%] sm:h-full md:w-[400px] md:h-[250px] lg:w-[700px] lg:h-auto xl:w-[900px] xl:h-[550px] p-0">
                   <img
                     src={item.image}
                     alt={item.title}
                     className="xs:w-full xs:h-full xs:object-fit-cover
-                    md:object-contain lg:object-fit-cover xl:object-contain 
+                    sm:object-contain lg:object-fit-cover xl:object-contain 
                   
                   "
                   />
