@@ -68,7 +68,8 @@ const ShowMeGrid = () => {
 
   // --- Desktop/Tablet (Grid) ---
   return (
-    <section className="w-[90%] mx-auto grid lg:grid-cols-4 xs:grid-cols-1 gap-5">
+    <section className="xl:w-[95%] lg:w-[90%] mx-auto grid xs:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+
       {contentItems.map((item, i) => (
         <React.Fragment key={i}>{renderCard(item)}</React.Fragment>
       ))}

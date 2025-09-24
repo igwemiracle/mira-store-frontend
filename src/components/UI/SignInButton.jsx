@@ -40,7 +40,7 @@ export default function SignInButton({ user, showTooltip, setShowTooltip, onSign
   return (
     <div className="flex items-center justify-between">
       {/* Large screens */}
-      <div className="xs:hidden lg:flex justify-center items-center">
+      <div className="xs:hidden md:flex justify-center items-center">
         <Link
           to="/login"
           className="flex flex-col p-2 lg:border-2 lg:border-transparent lg:hover:border-[#FDFDFD]"

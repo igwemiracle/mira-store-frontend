@@ -34,7 +34,7 @@ const Homepage = () => {
       <HeroSection />
 
       {/* Services section */}
-      <section className="xs:hidden lg:-mt-[8rem] relative z-20 md:flex flex-wrap w-[90%] mx-auto justify-between gap-4">
+      <section className="xs:hidden md:-mt-[5rem] lg:-mt-[7rem] relative z-20 md:flex flex-wrap w-[95%] mx-auto justify-between gap-4">
         {[
           {
             icon: (
@@ -77,11 +77,12 @@ const Homepage = () => {
             desc: 'Contact us 24 hours a day'
           }
         ].map((item, i) => (
-          <div key={i} className="flex items-start bg-white gap-4 p-8 flex-1 w-[300px]">
+          <div key={i} className="flex items-start bg-white gap-3 md:p-2 lg:py-8 px-1 xl:py-6 flex-1 w-[300px]">
             {item.icon}
             <div>
-              <p className="text-[22px] font-medium font-karla">{item.title}</p>
-              <p className="text-[18px] font-normal font-karla text-gray-600">{item.desc}</p>
+              <p className="md:text-[14px] lg:text-[19px] xl:text-[20px] font-medium font-karla">
+                {item.title}</p>
+              <p className="md:text-[10px] lg:text-[14px] xl:text-[17px] font-normal font-karla text-gray-600">{item.desc}</p>
             </div>
           </div>
         ))}

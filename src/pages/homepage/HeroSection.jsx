@@ -29,7 +29,7 @@ export default function HeroSection() {
   return (
     <>
       {/* ======= MOBILE VERSION (xs:303px only) ======= */}
-      <div className="lg:hidden xs:block w-[92%] mx-auto font-amazon relative z-10">
+      <div className="md:hidden xs:block w-[92%] mx-auto font-amazon relative z-10">
         <Swiper
           modules={[Pagination]}
           pagination={{ clickable: true }}
@@ -74,7 +74,7 @@ export default function HeroSection() {
       </div>
 
       {/* ======= DESKTOP VERSION (lg only, original code unchanged) ======= */}
-      <Link to={"/"} className="xs:hidden lg:block w-[92%] mx-auto overflow-hidden font-amazon relative z-10">
+      <Link to={"/"} className="xs:hidden md:block md:w-[100%] xl:w-[95%] mx-auto overflow-hidden font-amazon relative z-10">
         <div
           className="relative transition-transform duration-[1000ms] ease-in-out flex"
           style={{
@@ -86,35 +86,34 @@ export default function HeroSection() {
             <div
               key={index}
 
-              className="flex lg:items-center lg:justify-center flex-shrink-0 xs:rounded-2xl lg:rounded-none
-            relative lg:h-[500px] xs:h-[500px] xs:mt-[9rem] lg:mt-[5.9rem]"
+              className="flex md:items-center md:justify-center flex-shrink-0 xs:rounded-2xl md:rounded-none
+            relative md:h-[300px] lg:h-[500px] xs:h-[500px] xs:mt-[9rem] md:mt-[5.6rem]"
               style={{
                 width: `${100 / heroData.length}%`,
                 backgroundColor: item.bgColor,
               }}
             >
-              <div className="flex lg:flex-row lg:items-center lg:justify-center lg:p-0
+              <div className="flex md:flex-row md:items-center md:justify-center md:p-0
              xs:flex-col xs:justify-between xs:p-2">
 
                 {/* Left Text */}
-                <div className="flex flex-col gap-3 lg:w-[70%] md:text-left">
-                  <h1 className="xs:text-[35px] lg:text-[50px] font-extrabold text-white leading-tight max-w-[500px]">
+                <div className="flex flex-col gap-3 lg:basis-[70%] text-center animate-bounce">
+                  <h1 className="xs:text-[35px] lg:text-[45px] xl:text-[55px] font-extrabold text-white leading-tight">
                     {item.title}
                   </h1>
-                  <p className="xs:text-[20px] sm:text-[28px] md:text-[35px] font-extralight text-white">
+                  <p className="xs:text-[20px] sm:text-[28px] md:text-[30px] font-extralight text-white">
                     {item.subtitle}
                   </p>
                 </div>
 
                 {/* Right Image */}
-                <div className="xs:basis-[70%] lg:w-[900px] lg:h-auto">
+                <div className="xs:basis-[70%] md:w-[400px] md:h-[250px] lg:w-[700px] lg:h-auto xl:w-[900px] xl:h-[550px] p-0 ">
                   <img
                     src={item.image}
                     alt={item.title}
-                    // className=" w-[200%] h-[150%] object-fill"
-                    className="xs:w-full xs:h-full xs:object-fit-cover 
-                  lg:object-contain 
-                
+                    className="xs:w-full xs:h-full xs:object-fit-cover
+                    md:object-contain lg:object-fit-cover xl:object-contain 
+                  
                   "
                   />
                 </div>
@@ -130,13 +129,13 @@ export default function HeroSection() {
         {/* Chevron Navigation */}
         <button
           onClick={goToPrev}
-          className="absolute left-0.5 top-1/2 -translate-y-1/2 z-20 border-3 border-transparent hover:border-[#FDFDFD] py-6 md:py-[6.5rem]"
+          className="absolute left-0.5 top-1/2 -translate-y-1/2 z-20 border-3 border-transparent focus:border-[#FDFDFD] py-6 md:py-[6.5rem]"
         >
           <ChevronLeft className="xs:hidden sm:block  w-8 h-8 xs:w-10 xs:h-10 md:w-20 md:h-20 text-[#232F3E]" />
         </button>
         <button
           onClick={goToNext}
-          className="absolute right-0.5 top-1/2 -translate-y-1/2 z-20 border-3 border-transparent hover:border-[#FDFDFD] py-6 md:py-[6.5rem]"
+          className="absolute right-0.5 top-1/2 -translate-y-1/2 z-20 border-3 border-transparent focus:border-[#FDFDFD] py-6 md:py-[6.5rem]"
         >
           <ChevronRight className="xs:hidden sm:block w-8 h-8 xs:w-10 xs:h-10 md:w-20 md:h-20 text-[#232F3E]" />
         </button>

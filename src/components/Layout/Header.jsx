@@ -87,7 +87,7 @@ const Header = () => {
         className={`fixed py-3 top-0 left-0 w-full z-50 bg-[#232F3E] text-[#FDFDFD] transition-transform duration-700 ease-in-out font-karla ${scrolled && scrollDirection === "down" ? "-translate-y-full" : "translate-y-0"
           }`}
       >
-        <div className="flex-c-between lg:w-[83%] xs:w-[100%] mx-auto">
+        <div className="flex-c-between lg:w-[90%] xs:w-[100%] mx-auto">
           {/* Left: Menu + Logo */}
           <div className="flex-center gap-4 xs:gap-0">
             <button
@@ -106,7 +106,7 @@ const Header = () => {
           </div>
 
           {/* Middle: Search Bar */}
-          <div className="flex-1 xs:hidden lg:flex lg:justify-center px-4">
+          <div className="flex-1 xs:hidden md:flex lg:justify-center px-4">
             <SearchBar placeholder="Search for a product..." />
           </div>
 
@@ -117,7 +117,7 @@ const Header = () => {
               showTooltip={showTooltip}
               setShowTooltip={setShowTooltip}
             />
-            <div className="xs:hidden lg:flex justify-center items-center">
+            <div className="xs:hidden md:flex justify-center items-center">
               <Link
                 id="login-link"
                 to="/orders"
@@ -156,7 +156,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Search Bar */}
-        <div className="xs:flex lg:hidden">
+        <div className="xs:flex md:hidden">
           <SearchBar placeholder="Search for a product..." />
         </div>
       </header>

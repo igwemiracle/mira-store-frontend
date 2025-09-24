@@ -21,7 +21,7 @@ const FourGridCard = ({ title, linkText, items, parentCategoryId }) => {
       </div>
       <Link
         to={`/products/parent/${parentCategoryId}`}
-        className="text-[13px] font-normal hover:text-gray-800 pt-3"
+        className="text-[11px] font-normal hover:text-gray-800 pt-3 text-blue-900"
       >
         {linkText}
       </Link>
