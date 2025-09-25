@@ -12,6 +12,7 @@ const RegisterPage = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
+  const [isPending, setIsPending] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -20,6 +21,7 @@ const RegisterPage = () => {
     mutationFn: RegisterUsers,
     onSuccess: (data) => {
       dispatch(LoginSuccess({ user: data.user, token: data.token }));
+      setIsPending(false);
       navigate('/');
     },
     onError: (err) =>
@@ -51,6 +53,7 @@ const RegisterPage = () => {
 
 
     mutation.mutate({ name, email, password });
+    setIsPending(true);
   };
 
 
@@ -107,19 +110,27 @@ const RegisterPage = () => {
             onChange={(e) => setConfirmPassword(e.target.value)}
             className="w-full p-3 border border-dark-brown rounded focus:outline-none focus:border-2 focus:border-[#FA801D] transition-colors duration-300"
           />
+          {!isPending &&
+            <button
+              type="submit"
+              className="mt-4 w-full bg-dark-brown text-white p-3 rounded bg-[#03498f] transition-colors duration-300">
+              Sign Up
+            </button>
+          }
 
-          <button
-            type="submit"
-            className="mt-4 w-full bg-dark-brown text-white p-3 rounded bg-blue-500 transition-colors duration-300 hover:bg-blue-600">
-            Register
-          </button>
+
+          {isPending && <button
+            className="mt-4 w-full bg-dark-brown text-white p-3 rounded bg-[#03498f] transition-colors duration-300"
+            disabled>
+            Signing up...
+          </button>}
         </form>
 
         <div className="text-center text-dark-gray">
           <p className="text-sm">
             Already have an account?{' '}
             <Link to="/login" className="text-blue-500 hover:underline">
-              Login here
+              Sign in here
             </Link>.
           </p>
           <p className="text-xs mt-2">
