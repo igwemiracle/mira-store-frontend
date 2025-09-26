@@ -46,7 +46,7 @@ export default function HeroSection() {
           centeredSlides={false} // center the active slide
         >
           {heroData.map((item, index) => (
-            <SwiperSlide key={index} className="!w-[80%]">
+            <SwiperSlide key={index} className="xs:!w-[90%] ">
               <div
                 className="flex flex-col justify-between p-2 rounded-xl h-[500px] mt-[9rem]"
                 style={{ backgroundColor: item.bgColor }}
@@ -76,7 +76,7 @@ export default function HeroSection() {
 
 
       {/* ======= DESKTOP VERSION (lg only, original code unchanged) ======= */}
-      <Link to={"/"} className="xs:hidden sm:block md:w-[100%] xl:w-[95%] mx-auto overflow-hidden font-amazon relative z-10">
+      <Link to={"/"} className="xs:hidden sm:block sm:w-[100%] mx-auto overflow-hidden font-amazon relative z-10">
         <div
           className="relative transition-transform duration-[1000ms] ease-in-out flex"
           style={{

@@ -7,7 +7,7 @@ import { LogoutUser } from "../../services/authService";
 import { useDispatch } from "react-redux";
 import { Logout } from "../../redux/slices/authSlice";
 
-export default function SignInButton({ user, showTooltip, setShowTooltip, onSignOut }) {
+export default function SignInButton({ user, showTooltip, setShowTooltip }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
@@ -40,19 +40,21 @@ export default function SignInButton({ user, showTooltip, setShowTooltip, onSign
   return (
     <div className="flex items-center justify-between">
       {/* Large screens */}
-      <div className="xs:hidden sm:flex justify-center items-center">
-        <Link
-          to="/login"
-          className="flex flex-col p-2 lg:border-2 lg:border-transparent lg:hover:border-[#FDFDFD]"
-          onMouseEnter={() => setShowTooltip(true)}
-          onMouseLeave={() => setShowTooltip(false)}
+      <div className="xs:hidden sm:flex justify-center relative">
+        <button
+          id="login-link"
+          type="button"
+          onClick={() => setShowTooltip((prev) => !prev)}
+          className="flex flex-col p-2 lg:border-2 lg:border-transparent lg:hover:border-[#FDFDFD] focus:outline-none"
         >
-          <p className="text-[14px] font-normal text-truncate">
+          <p className="text-[14px] font-normal">
             Hello, {user ? user.name ?? "User" : "sign in"}
           </p>
           <span className="font-semibold">Account & Lists</span>
-        </Link>
+        </button>
       </div>
+
+
 
       {/* Mobile */}
       <div className="xs:flex sm:hidden">

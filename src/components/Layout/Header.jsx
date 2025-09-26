@@ -117,6 +117,25 @@ const Header = () => {
               showTooltip={showTooltip}
               setShowTooltip={setShowTooltip}
             />
+
+            {/* Overlay for click outside (mobile + desktop) */}
+            {showTooltip && (
+              <div
+                className="fixed inset-0 h-[120vh] bg-black/50 z-40"
+                onClick={() => setShowTooltip(false)}
+              ></div>
+            )}
+
+            {/* Dropdown attached below button */}
+            <div
+              className={`absolute top-full sm:right-[2%] lg:right-[9%] mt-2 z-50 transform transition-all duration-300 ease-out p-6 w-96 bg-white rounded-b-md shadow-xl ${showTooltip
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 -translate-y-3 pointer-events-none'
+                }`}
+            >
+              <AccountDropdown />
+            </div>
+
             <div className="xs:hidden sm:flex justify-center items-center">
               <Link
                 id="login-link"
@@ -141,17 +160,6 @@ const Header = () => {
                 </span>
               )}
             </button>
-
-            {/* Tooltip Dropdown */}
-            {showTooltip && (
-              <>
-                <div className="fixed mt-[11.95rem] top-[-10vh] bottom-[-100vh] right-0 left-0 bg-black/50 z-40"></div>
-                <AccountDropdown
-                  onMouseEnter={() => setShowTooltip(true)}
-                  onMouseLeave={() => setShowTooltip(false)}
-                />
-              </>
-            )}
           </div>
         </div>
 

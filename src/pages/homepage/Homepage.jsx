@@ -34,7 +34,7 @@ const Homepage = () => {
   const isLoading = babyLoading || videoGamesLoading || fashionLoading;
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 mx-auto xs:w-[95%] sm:w-[100%] xl:w-[95%]">
       {/* Hero Section */}
       <HeroSection />
 
@@ -86,9 +86,9 @@ const Homepage = () => {
           <div key={i} className="flex items-start bg-white gap-3 sm:p-2 lg:py-8 px-1 xl:py-6 flex-1 w-[300px]">
             {item.icon}
             <div>
-              <p className="sm:text-[12px] md:text-[14px] lg:text-[19px] xl:text-[20px] font-medium font-karla">
+              <p className="sm:text-[10px] md:text-[14px] lg:text-[19px] xl:text-[20px] font-medium font-karla">
                 {item.title}</p>
-              <p className="sm:text-[10px] md:text-[10px] lg:text-[14px] xl:text-[17px] font-normal font-karla text-gray-600">{item.desc}</p>
+              <p className="sm:text-[8px] md:text-[10px] lg:text-[14px] xl:text-[17px] font-normal font-karla text-gray-600">{item.desc}</p>
             </div>
           </div>
         ))}
@@ -110,13 +110,7 @@ const Homepage = () => {
               getId={(item) => item._id}
               getImage={(item) => item.images?.[0]?.url}
               loading={babyLoading}
-              breakpoints={{
-                390: { slidesPerView: 2 },
-                640: { slidesPerView: 3 },
-                768: { slidesPerView: 4 },
-                1024: { slidesPerView: 5 },
-                1280: { slidesPerView: 6 },
-              }}
+
             />
 
             <SwiperSlider
@@ -125,13 +119,7 @@ const Homepage = () => {
               getId={(game) => game._id}
               getImage={(game) => game.images?.[0]?.url}
               loading={videoGamesLoading}
-              breakpoints={{
-                390: { slidesPerView: 2 },
-                640: { slidesPerView: 3 },
-                768: { slidesPerView: 4 },
-                1024: { slidesPerView: 5 },
-                1280: { slidesPerView: 6 },
-              }}
+
             />
 
             <SwiperSlider
@@ -140,13 +128,7 @@ const Homepage = () => {
               getId={(fashion) => fashion._id}
               getImage={(fashion) => fashion.images?.[0]?.url}
               loading={fashionLoading}
-              breakpoints={{
-                390: { slidesPerView: 2 },
-                640: { slidesPerView: 3 },
-                768: { slidesPerView: 4 },
-                1024: { slidesPerView: 5 },
-                1280: { slidesPerView: 6 },
-              }}
+
             />
           </div>
         )

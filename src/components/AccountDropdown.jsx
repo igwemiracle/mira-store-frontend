@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { LogoutUser } from "../services/authService";
 import { Logout } from "../redux/slices/authSlice";
 
-export default function AccountDropdown({ onMouseEnter, onMouseLeave }) {
+export default function AccountDropdown() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isAuthenticated = !!localStorage.getItem("user");
@@ -20,12 +20,7 @@ export default function AccountDropdown({ onMouseEnter, onMouseLeave }) {
   };
 
   return (
-    <div
-      id="login-tooltip"
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      className="absolute top-[80px] right-[9%] bg-white shadow-xl p-6 w-96 z-50 rounded-b-md"
-    >
+    <div id="login-tooltip">
       {/* Tooltip arrow */}
       <div className="absolute -top-2 right-[8.5rem] w-4 h-4 bg-white rotate-45"></div>
 
