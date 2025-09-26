@@ -28,13 +28,12 @@ export default function HeroSection() {
 
   return (
     <>
-      {/* ======= MOBILE VERSION (xs:303px only) ======= */}
-      <div className="sm:hidden xs:block w-[92%] mx-auto font-amazon relative z-10">
+      {/* ======= MOBILE VERSION (xs:390px only) ======= */}
+      <div className="sm:hidden xs:block font-amazon relative z-10 -ml-4">
         <Swiper
           modules={[Pagination]}
           pagination={{ clickable: true }}
           loop={true}
-          // these make it work nicely in simulators + real phones
           cssMode={true}
           simulateTouch={true}
           allowTouchMove={true}
@@ -42,12 +41,14 @@ export default function HeroSection() {
           touchStartPreventDefault={false}
           resistanceRatio={0.5}
           threshold={12}
-          className="rounded-2xl"
+          spaceBetween={10} // gap between slides
+          slidesPerView={1.15} // show 85% of one slide + 15% of next
+          centeredSlides={false} // center the active slide
         >
           {heroData.map((item, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={index} className="!w-[80%]">
               <div
-                className="flex flex-col justify-between p-2 rounded-2xl h-[500px] mt-[9rem]"
+                className="flex flex-col justify-between p-2 rounded-xl h-[500px] mt-[9rem]"
                 style={{ backgroundColor: item.bgColor }}
               >
                 {/* Left Text */}
@@ -64,7 +65,7 @@ export default function HeroSection() {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-fit-cover "
+                    className="w-full h-full object-cover"
                   />
                 </div>
               </div>
@@ -72,6 +73,7 @@ export default function HeroSection() {
           ))}
         </Swiper>
       </div>
+
 
       {/* ======= DESKTOP VERSION (lg only, original code unchanged) ======= */}
       <Link to={"/"} className="xs:hidden sm:block md:w-[100%] xl:w-[95%] mx-auto overflow-hidden font-amazon relative z-10">

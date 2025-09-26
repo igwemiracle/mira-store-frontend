@@ -35,7 +35,7 @@ const Homepage = () => {
 
       {/* Services section */}
       <section className="xs:hidden sm:-mt-[5rem] lg:-mt-[7rem] relative z-20 sm:flex flex-wrap 
-       sm:w-[95%] mx-auto justify-between gap-4">
+       w-[95%] mx-auto justify-between gap-4">
         {[
           {
             icon: (
@@ -89,58 +89,57 @@ const Homepage = () => {
         ))}
       </section>
 
-      <div className="space-y-8 lg:mt-0 relative z-10">
+      {/* Slide card grid */}
+      {/* <ShowMeGrid /> */}
 
-        {/* Slide card grid */}
-        <ShowMeGrid />
+      {/* Show card grid */}
+      <ShowCardGrid />
 
-        {/* Show card grid */}
-        <ShowCardGrid />
 
-        {/* Swiper Slider */}
-        <div>
-          <SwiperSlider
-            title="Top in Baby Products"
-            data={babyItems}
-            getId={(item) => item._id}
-            getImage={(item) => item.images?.[0]?.url}
-            loading={babyLoading}
-            breakpoints={{
-              303: { slidesPerView: 1.2 },
-              320: { slidesPerView: 2 },
-              768: { slidesPerView: 4 },
-              1024: { slidesPerView: 6 },
-            }}
-          />
+      {/* Swiper Slider */}
+      <SwiperSlider
+        title="Top in Baby Products"
+        data={babyItems}
+        getId={(item) => item._id}
+        getImage={(item) => item.images?.[0]?.url}
+        loading={babyLoading}
+        breakpoints={{
+          390: { slidesPerView: 2 },
+          640: { slidesPerView: 3 },
+          768: { slidesPerView: 4 },
+          1024: { slidesPerView: 5 },
+          1280: { slidesPerView: 6 },
+        }}
+      />
 
-          <SwiperSlider
-            title="Trending Video Games"
-            data={videoGames}
-            getId={(game) => game._id}
-            getImage={(game) => game.images?.[0]?.url}
-            loading={videoGamesLoading}
-            breakpoints={{
-              303: { slidesPerView: 1.2 },
-              320: { slidesPerView: 2 },
-              768: { slidesPerView: 4 },
-              1024: { slidesPerView: 6 },
-            }}
-          />
-          <SwiperSlider
-            title="Best Sellers in Clothing, Shoes & Jewelry"
-            data={fashion}
-            getId={(fashion) => fashion._id}
-            getImage={(fashion) => fashion.images?.[0]?.url}
-            loading={fashionLoading}
-            breakpoints={{
-              303: { slidesPerView: 1.2 },
-              320: { slidesPerView: 2 },
-              768: { slidesPerView: 4 },
-              1024: { slidesPerView: 6 },
-            }}
-          />
-        </div>
-      </div>
+      <SwiperSlider
+        title="Trending Video Games"
+        data={videoGames}
+        getId={(game) => game._id}
+        getImage={(game) => game.images?.[0]?.url}
+        loading={videoGamesLoading}
+        breakpoints={{
+          390: { slidesPerView: 2 },
+          640: { slidesPerView: 3 },
+          768: { slidesPerView: 4 },
+          1024: { slidesPerView: 5 },
+          1280: { slidesPerView: 6 },
+        }}
+      />
+      <SwiperSlider
+        title="Best Sellers in Clothing, Shoes & Jewelry"
+        data={fashion}
+        getId={(fashion) => fashion._id}
+        getImage={(fashion) => fashion.images?.[0]?.url}
+        loading={fashionLoading}
+        breakpoints={{
+          390: { slidesPerView: 2 },
+          640: { slidesPerView: 3 },
+          768: { slidesPerView: 4 },
+          1024: { slidesPerView: 5 },
+          1280: { slidesPerView: 6 },
+        }}
+      />
     </div>
   );
 };

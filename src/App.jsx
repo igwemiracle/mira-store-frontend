@@ -22,7 +22,7 @@ const AppLayout = ({ children }) => {
   const shouldHideNavFooter = hideNavFooterRoutes.includes(location.pathname);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 md:w-[100%] sm:w-[110%]">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 md:w-[100%] sm:w-[113%]">
       {!shouldHideNavFooter && <Header />}
       <div className="flex-grow flex flex-col w-full">
         {children}
