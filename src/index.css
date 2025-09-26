@@ -9,7 +9,7 @@
   --font-karla: "Karla", sans-serif;
   --font-lora: "Lora", serif;
   --font-amazon: "Inter", Arial, sans-serif;
-  --breakpoint-xs: 390px;
+  --breakpoint-xs: 303px;
 }
 
 @layer base {
