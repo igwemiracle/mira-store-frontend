@@ -1,4 +1,5 @@
 import React from 'react';
+import './loader.css'
 
 export const LoadingSpinner = ({
   size = 'md',
@@ -11,9 +12,7 @@ export const LoadingSpinner = ({
   };
 
   return (
-    <div
-      className={`animate-spin rounded-full border-2 border-gray-300 border-t-blue-600 ${sizeClasses[size]} ${className}`}
-    />
+    <div className={`loader ${sizeClasses[size]} ${className}`} />
   );
 };
 

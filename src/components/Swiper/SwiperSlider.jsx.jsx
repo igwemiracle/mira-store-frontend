@@ -25,8 +25,8 @@ const SwiperSlider = ({
   const validSlides = data.filter((item) => getId(item) && getImage(item));
 
   return (
-    <section className="space-y-8 lg:mt-0 relative z-10 xs:w-[370px] sm:w-[95%] lg:w-[95%] mx-auto">
-      <h1 className="text-[30px] font-bold mb-4 font-lato mt-8">{title}</h1>
+    <section className="space-y-6 lg:mt-0 relative z-10 xs:w-[370px] sm:w-[95%] lg:w-[95%] mx-auto">
+      <h1 className="xs:text-[22px] lg:text-[30px] font-bold font-lato">{title}</h1>
 
       {loading ? (
         <SwiperSkeleton />

@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import { MdSupportAgent } from 'react-icons/md';
+import { useSelector } from "react-redux";
 import useCategoryProducts from "../../hooks/useCategoryProducts.js";
 import SwiperSlider from "../../components/Swiper/SwiperSlider.jsx";
-import ShowCardGrid from '../../components/Cards/ShowCardGrid.jsx'
+import ShowCardGrid from '../../components/Cards/ShowCardGrid.jsx';
 import HeroSection from "./HeroSection.jsx";
-import ShowMeGrid from "../../components/Cards/ShowMeGrid.jsx";
+import { LoadingSpinner } from "../../components/UI/LoadingSpinner.jsx";
+
 
 const Homepage = () => {
+  // replace this with your real auth logic
+  const isLoggedIn = useSelector((state) => state.auth.user);
+
+  console.log("User logged in:", isLoggedIn);
+
   const { products: babyItems, loading: babyLoading } = useCategoryProducts({
     parentCategoryName: "Baby",
     subCategoryName: "Diapering",
@@ -22,11 +30,8 @@ const Homepage = () => {
     subCategoryName: "Men's Fashion",
   });
 
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-  };
+  // ✅ show spinner while any category is loading
+  const isLoading = babyLoading || videoGamesLoading || fashionLoading;
 
   return (
     <div className="flex flex-col gap-8">
@@ -89,57 +94,78 @@ const Homepage = () => {
         ))}
       </section>
 
-      {/* Slide card grid */}
-      {/* <ShowMeGrid /> */}
+      {/* Only show this part when the user is logged in */}
+      {isLoggedIn ? (
+        isLoading ? (
+          <LoadingSpinner className="mx-auto my-6" />
+        ) : (
+          <div>
+            {/* Show card grid */}
+            <ShowCardGrid />
 
-      {/* Show card grid */}
-      <ShowCardGrid />
+            {/* Swiper Slider */}
+            <SwiperSlider
+              title="Top in Baby Products"
+              data={babyItems}
+              getId={(item) => item._id}
+              getImage={(item) => item.images?.[0]?.url}
+              loading={babyLoading}
+              breakpoints={{
+                390: { slidesPerView: 2 },
+                640: { slidesPerView: 3 },
+                768: { slidesPerView: 4 },
+                1024: { slidesPerView: 5 },
+                1280: { slidesPerView: 6 },
+              }}
+            />
 
+            <SwiperSlider
+              title="Trending Video Games"
+              data={videoGames}
+              getId={(game) => game._id}
+              getImage={(game) => game.images?.[0]?.url}
+              loading={videoGamesLoading}
+              breakpoints={{
+                390: { slidesPerView: 2 },
+                640: { slidesPerView: 3 },
+                768: { slidesPerView: 4 },
+                1024: { slidesPerView: 5 },
+                1280: { slidesPerView: 6 },
+              }}
+            />
 
-      {/* Swiper Slider */}
-      <SwiperSlider
-        title="Top in Baby Products"
-        data={babyItems}
-        getId={(item) => item._id}
-        getImage={(item) => item.images?.[0]?.url}
-        loading={babyLoading}
-        breakpoints={{
-          390: { slidesPerView: 2 },
-          640: { slidesPerView: 3 },
-          768: { slidesPerView: 4 },
-          1024: { slidesPerView: 5 },
-          1280: { slidesPerView: 6 },
-        }}
-      />
-
-      <SwiperSlider
-        title="Trending Video Games"
-        data={videoGames}
-        getId={(game) => game._id}
-        getImage={(game) => game.images?.[0]?.url}
-        loading={videoGamesLoading}
-        breakpoints={{
-          390: { slidesPerView: 2 },
-          640: { slidesPerView: 3 },
-          768: { slidesPerView: 4 },
-          1024: { slidesPerView: 5 },
-          1280: { slidesPerView: 6 },
-        }}
-      />
-      <SwiperSlider
-        title="Best Sellers in Clothing, Shoes & Jewelry"
-        data={fashion}
-        getId={(fashion) => fashion._id}
-        getImage={(fashion) => fashion.images?.[0]?.url}
-        loading={fashionLoading}
-        breakpoints={{
-          390: { slidesPerView: 2 },
-          640: { slidesPerView: 3 },
-          768: { slidesPerView: 4 },
-          1024: { slidesPerView: 5 },
-          1280: { slidesPerView: 6 },
-        }}
-      />
+            <SwiperSlider
+              title="Best Sellers in Clothing, Shoes & Jewelry"
+              data={fashion}
+              getId={(fashion) => fashion._id}
+              getImage={(fashion) => fashion.images?.[0]?.url}
+              loading={fashionLoading}
+              breakpoints={{
+                390: { slidesPerView: 2 },
+                640: { slidesPerView: 3 },
+                768: { slidesPerView: 4 },
+                1024: { slidesPerView: 5 },
+                1280: { slidesPerView: 6 },
+              }}
+            />
+          </div>
+        )
+      ) : (
+        <div className="mx-auto text-center py-10 flex flex-col items-center gap-4">
+          <h1 className="xs:text-[22px] lg:text-[30px] font-semibold">See personalized recommendations</h1>
+          <Link to={'/login'}
+            type="button"
+            className="bg-[#FA801D] text-white p-3 rounded-full w-[70%] transition-colors duration-300">
+            Sign In
+          </Link>
+          <p className="text-xs">
+            New customer?{" "}
+            <Link to="/terms" className="text-blue-500 hover:underline">
+              Start here.
+            </Link>.
+          </p>
+        </div>
+      )}
     </div>
   );
 };
