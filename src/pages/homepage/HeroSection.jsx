@@ -29,7 +29,7 @@ export default function HeroSection() {
   return (
     <>
       {/* ======= MOBILE VERSION (xs:390px only) ======= */}
-      <div className="sm:hidden xs:block font-amazon relative z-10 -ml-4">
+      <div className="sm:hidden xs:block font-amazon relative z-10 ml-2">
         <Swiper
           modules={[Pagination]}
           pagination={{ clickable: true }}
