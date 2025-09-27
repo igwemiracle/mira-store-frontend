@@ -1,16 +1,18 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { useCheckout } from "../hooks/useCheckout";
 import { useCart } from "../hooks/useCart";
 import PaymentForm from "./PaymentForm";
 import OrderSummary from "../components/OrderSummary";
-import { LoadingSpinner } from "../components/UI/LoadingSpinner";
 import OrderSummarySkeleton from "../components/skeletons/OrderSummarySkeleton";
 
 export default function CheckoutPage() {
+  const location = useLocation();
   const { paymentIntentMutation, createOrder } = useCheckout();
   const { data: cartData, isLoading: cartLoading } = useCart();
-  console.log("Cart from backend:", cartData);
 
+  // Get clientSecret passed from CartSlider via navigate
+  const clientSecretFromState = location.state?.clientSecret;
 
   const handleOrder = async (paymentIntentId) => {
     try {
@@ -23,47 +25,41 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className="xs:w-[100%] lg:w-[95%] mx-auto mt-24 p-4 sm:p-6">
-      <h1 className="text-4xl font-extrabold my-8 text-center text-gray-900">
-        Checkout
-      </h1>
+    <div className=" w-[100%]  mx-auto mt-32 p-4 sm:p-6">
+      {/* <h1 className="text-4xl font-extrabold mb-8 text-center text-gray-900">Checkout</h1> */}
 
-      <div className="flex xs:flex-col lg:flex-row justify-center gap-10">
-
-        {/* Left Column: Order Summary */}
+      <div className="flex xs:flex-col xs:items-center sm:items-start sm:flex-row justify-center gap-3">
+        {/* -------- Order Summary -------- */}
         <div>
           {cartLoading ? (
             <OrderSummarySkeleton />
           ) : (
-            <OrderSummary
-              cart={cartData?.data?.cart}
-              isProcessing={paymentIntentMutation.isLoading}
-              onProceedToPayment={() => paymentIntentMutation.mutate()}
-            />
-          )}
-          {paymentIntentMutation.isError && (
-            <p className="text-red-500 font-medium mt-4">
-              {paymentIntentMutation.error?.response?.data?.msg ||
-                paymentIntentMutation.error?.message}
-            </p>
+            <OrderSummary cart={cartData?.data?.cart} />
           )}
         </div>
 
-        {/* Right Column: Payment Form (appear only after Proceed) */}
+        {/* -------- Payment Form -------- */}
         <div className="">
-          {paymentIntentMutation.isSuccess && (
+          {/* Show PaymentForm if clientSecret exists or mutation succeeded */}
+          {(clientSecretFromState || paymentIntentMutation.isSuccess) && (
             <div className="bg-white rounded-3xl shadow-xl p-6">
               <PaymentForm
-                clientSecret={paymentIntentMutation.data?.clientSecret}
+                clientSecret={
+                  clientSecretFromState ||
+                  paymentIntentMutation.data?.clientSecret
+                }
                 onPaymentSuccess={handleOrder}
               />
+            </div>
+          )}
+          {/* Optional: show a loader while waiting for mutation */}
+          {paymentIntentMutation.isLoading && (
+            <div className="flex justify-center items-center h-64">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-blue-600"></div>
             </div>
           )}
         </div>
       </div>
     </div>
-
-
-
   );
 }

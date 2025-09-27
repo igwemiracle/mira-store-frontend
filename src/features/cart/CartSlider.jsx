@@ -1,33 +1,49 @@
 import React from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { getCart } from '../../services/cartService';
 import CartSkeleton from '../../components/skeletons/CartSkeleton';
 import QuantityControls from '../../components/QuantityControls';
 import { useCartActions } from '../../hooks/useCartActions';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { createPaymentIntentOnly } from '../../services/orderService';
 
 export default function CartSlider() {
   const { isUpdating, handleIncrement, handleDecrement, handleRemove } = useCartActions();
-
-  const { data, isLoading } = useQuery({
-    queryKey: ['cart'],
-    queryFn: getCart,
-  });
-
+  const { data, isLoading } = useQuery({ queryKey: ['cart'], queryFn: getCart });
   const cart = data?.data?.cart;
+  const navigate = useNavigate();
+
+  const paymentIntentMutation = useMutation({ mutationFn: () => createPaymentIntentOnly() });
+
+  const handleProceedToPayment = async () => {
+    try {
+      const result = await paymentIntentMutation.mutateAsync();
+      // Pass clientSecret via state so CheckoutPage knows the payment intent is ready
+      navigate("/checkout", { state: { clientSecret: result.clientSecret } });
+    } catch (err) {
+      console.error("Failed to create payment intent:", err);
+      alert("Could not proceed to payment. Try again.");
+    }
+  };
 
   if (isLoading) return <CartSkeleton />;
   if (!cart || cart.items.length === 0) return <p className='text-center'>Your cart is empty.</p>;
 
   return (
-    <div className="w-full flex-center flex-col">
+    <div className="w-full flex-center flex-col ">
       {/* Subtotal Section */}
-      <div className="xs:w-[41%] sm:w-[20%] lg:w-[9.5%] bg-white flex-center flex-col gap-2 fixed top-0 z-10 p-4">
+      <div className="xs:w-[41%] sm:w-[20%] lg:w-[9.5%] flex-center flex-col gap-2 fixed top-0 z-10 p-4">
         <h1 className="text-lg font-semibold">Subtotal</h1>
         <h2 className="text-base font-normal">${cart.totalPrice?.toFixed(2) || '0.00'}</h2>
-        <Link to="/checkout" className="bg-[#FA801D] lg:w-[90%] xs:px-8 text-white rounded-md py-2 text-sm hover:bg-[#e57114] transition">
-          CHECKOUT
-        </Link>
+        {/* Proceed to Payment Button */}
+        <button
+          onClick={handleProceedToPayment}
+          disabled={paymentIntentMutation.isLoading || cart.items.length === 0}
+          className="w-full bg-[#FA801D] xs:text-[12px] px-8 text-white rounded-md py-2 text-sm hover:bg-[#e57114] transition disabled:opacity-50"
+        >
+          {paymentIntentMutation.isLoading ? "Processing..." : "CHECKOUT"}
+        </button>
+
       </div>
 
       {/* Cart Items Section */}

@@ -9,7 +9,7 @@ export default function OrderSummary({ cart, onProceedToPayment, isProcessing })
   const total = cart?.totalPrice || subtotal + shippingFee + taxes;
 
   return (
-    <div className="bg-white rounded-3xl shadow-xl p-6 flex flex-col xs:w-[290px] sm:w-[400px] md-w-[400px] lg:w-[450px]">
+    <div className="bg-white rounded-3xl shadow-xl p-6 flex flex-col xs:w-[100%] sm:w-[100%] md-w-[400px] lg:w-[450px]">
       <h2 className="text-2xl font-semibold mb-6">Order Summary</h2>
 
       {/* Items */}
@@ -57,15 +57,6 @@ export default function OrderSummary({ cart, onProceedToPayment, isProcessing })
         <span>Total</span>
         <span>${total.toFixed(2)}</span>
       </div>
-
-      {/* Proceed to Payment */}
-      <button
-        onClick={onProceedToPayment}
-        disabled={isProcessing || items.length === 0}
-        className="w-full py-3 px-5 bg-blue-600 text-white font-medium rounded-2xl shadow-md hover:bg-blue-700 transition-colors disabled:opacity-50"
-      >
-        {isProcessing ? "Processing..." : "Proceed to Payment"}
-      </button>
     </div>
   );
 }
