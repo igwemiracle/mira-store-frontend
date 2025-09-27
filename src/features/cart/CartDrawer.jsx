@@ -6,7 +6,7 @@ const CartDrawer = ({ children, isDrawerOpen, toggleCartDrawer }) => {
     <div>
       <div className={`drawer ${isDrawerOpen ? "open" : ""}`}>
         {/* Tooltip arrow */}
-        <div className="xs:hidden lg:block absolute top-9 left-[-0.4rem] w-4 h-4 bg-white rotate-45 z-10"></div>
+        {/* <div className="xs:hidden lg:block absolute top-9 left-[-0.4rem] w-4 h-4 bg-white rotate-45 z-10"></div> */}
 
         {/* Cart Items Scroll Area */}
         <div className="drawer-content overflow-y-auto px-4">
