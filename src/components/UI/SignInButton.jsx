@@ -45,11 +45,15 @@ export default function SignInButton({ user, showTooltip, setShowTooltip }) {
           id="login-link"
           type="button"
           onClick={() => setShowTooltip((prev) => !prev)}
-          className="flex flex-col p-2 lg:border-2 lg:border-transparent lg:hover:border-[#FDFDFD] focus:outline-none"
+          className="flex flex-col items-start p-2 lg:border-2 lg:border-transparent lg:hover:border-[#FDFDFD] focus:outline-none"
         >
           <p className="text-[14px] font-normal">
-            Hello, {user ? user.name ?? "User" : "sign in"}
+            Hello,{" "}
+            {user
+              ? (user.name?.split(" ")[0] || "User")
+              : "sign in"}
           </p>
+
           <span className="font-semibold">Account & Lists</span>
         </button>
       </div>
@@ -75,7 +79,9 @@ export default function SignInButton({ user, showTooltip, setShowTooltip }) {
               onClick={openDrawer}
               className="flex items-center text-sm mr-2"
             >
-              <span className="text-[18px] font-medium">{user.name ?? "User"}</span>
+              <span className="text-[18px] font-medium mr-2">{user
+                ? (user.name?.split(" ")[0] || "User")
+                : "sign in"}</span>
               <ChevronRight className="xs:w-4 xs:h-4 w-4 h-4" />
               <User className="xs:w-7 xs:h-7 w-4 h-4" />
             </button>

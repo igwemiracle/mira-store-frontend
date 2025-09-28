@@ -4,7 +4,7 @@ import { getCart } from '../../services/cartService';
 import CartSkeleton from '../../components/skeletons/CartSkeleton';
 import QuantityControls from '../../components/QuantityControls';
 import { useCartActions } from '../../hooks/useCartActions';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { createPaymentIntentOnly } from '../../services/orderService';
 
 export default function CartSlider() {

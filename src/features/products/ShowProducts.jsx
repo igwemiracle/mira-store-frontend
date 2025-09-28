@@ -26,7 +26,7 @@ const ShowProducts = ({ products, title = "Trending Products", hideFilter = fals
       : products.filter((p) => p.category?.name === filteredCategory);
 
   return (
-    <section className="grid lg:grid-cols-5 gap-2 lg:w-[90%] xs:w-[100%] mx-auto">
+    <section className="grid md:grid-cols-3 lg:grid-cols-5 gap-2 md:w-[95%] lg:w-[90%] xs:w-[100%] mx-auto">
       {products.length === 0 ? (
         <div className="col-span-4 flex flex-col items-center justify-center py-20 text-center text-gray-500">
           <svg

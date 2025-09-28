@@ -33,7 +33,7 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <div className='bg-white lg:p-4 rounded-md flex xs:justify-between lg:flex-col lg:items-start 
+    <div className='bg-white p-4 rounded-md flex xs:justify-between md:flex-col lg:items-start 
     xs:w-[95%] mx-auto lg:max-w-xs'>
       {/* Product Image */}
       <div className='basis-[50%] rounded-md overflow-hidden mb-2'>

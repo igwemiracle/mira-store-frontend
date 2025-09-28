@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Menu, ShoppingCart } from "lucide-react";
 import { images } from "../../assets/images";
 import SearchBar from "../SearchBar";
@@ -81,6 +81,14 @@ const Header = () => {
     }
   };
 
+  const navigate = useNavigate();
+
+  const handleOrdersClick = () => {
+    requireAuth(() => {
+      navigate("/orders"); // only goes if user exists
+    });
+  };
+
   return (
     <>
       <header
@@ -136,15 +144,14 @@ const Header = () => {
               <AccountDropdown />
             </div>
 
-            <div className="xs:hidden sm:flex justify-center items-center">
-              <Link
-                id="login-link"
-                to="/orders"
+            <div className="xs:hidden sm:flex justify-center items-start">
+              <button
+                onClick={handleOrdersClick}
                 className="flex flex-col p-2 border-2 border-transparent hover:border-[#FDFDFD]"
               >
                 <p className="text-[14px] font-normal">Returns</p>
                 <span className="font-semibold">& Orders</span>
-              </Link>
+              </button>
             </div>
 
             {/* Shopping Cart */}
