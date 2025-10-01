@@ -162,7 +162,7 @@ const ProductDetails = () => {
       <section className="w-[100%] mx-auto mt-12">
         <h2 className="text-4xl font-bold font-lora pb-8">Similar Products</h2>
         {similarProducts.length > 0 ? (
-          <div className="grid lg:grid-cols-5 gap-2 place-items-center w-[100%]">
+          <div className="grid md:w-[95%] lg:w-[90%] xs:w-[100%] md:grid-cols-3 lg:grid-cols-5 gap-2 place-items-center">
             {similarProducts.map((item) => (
               <ProductCard key={item.id} product={item} handleAddToCart={handleAddToCart} />
             ))}
