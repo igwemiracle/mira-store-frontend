@@ -22,7 +22,7 @@ export const Button = ({
   icon: Icon,
   loading = false,
   children,
-  className = '',
+  className = '',``
   disabled,
   ...props
 }) => {
@@ -48,9 +48,3 @@ export const Button = ({
     </button>
   );
 };
-
-
-// Example usage
-{/* <Button variant="primary" size="lg" loading>
-  Submit
-</Button> */}
